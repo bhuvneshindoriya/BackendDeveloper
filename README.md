@@ -1,19 +1,11 @@
 # Project Name
+Backend Project Assignment
 
-Short project description
 
-## Table of Contents
-
-- [Project Description](#project-description)
-- [Installation](#installation)
-- [Usage](#usage)
-- [API Endpoints](#api-endpoints)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Project Description
 
-This project is a (brief description of your project). It provides an API for managing products and users.
+It provides an API for managing products and users.
 
 ## Installation
 
@@ -31,7 +23,7 @@ This project is a (brief description of your project). It provides an API for ma
 4. Start the server:
 
 
-5. The server should now be running on `http://localhost:3000`.
+5. The server should now be running on `http://localhost:3001`.
 
 ## Usage
 
@@ -63,25 +55,110 @@ POST /login: User login.
     "password": "password"
 }
 
-POST /api/items: Create a new product.
+## Create a new product
+POST /api/items: 
+Request Body:
+{
+  "name": "freez",
+  "price": 30000,
+  "description": "This is a sample product",
+  "category": "Electronics"
+}
+Response:
+{
+    "name": "freez",
+    "price": 30000,
+    "description": "This is a sample product",
+    "category": "Electronics",
+    "user": "647ed70a6157c233f205cfdc",
+    "_id": "647f112683c0f10a3df539e3",
+    "createdAt": "2023-06-06T10:57:42.977Z",
+    "__v": 0
+}
+## Get all products
 
-GET /api/items: Get all products.
+## GET /api/items:
+we can use pagination here-
+Response-
+{
+    "products": [
+        {
+            "_id": "647f112683c0f10a3df539e3",
+            "name": "freez",
+            "price": 30000,
+            "description": "This is a sample product",
+            "category": "Electronics",
+            "user": "647ed70a6157c233f205cfdc",
+            "createdAt": "2023-06-06T10:57:42.977Z",
+            "__v": 0
+        },
+        {
+            "_id": "647edea5ef6af4775ec3652c",
+            "name": "Television",
+            "price": 100,
+            "description": "This is sample product",
+            "category": "Electronics",
+            "user": "647ed70a6157c233f205cfdc",
+            "createdAt": "2023-06-06T07:22:13.982Z",
+            "__v": 0
+        },
+        {
+            "_id": "647e3282eb4080c4543ad128",
+            "name": "Sample Product",
+            "price": 9.99,
+            "description": "This is a sample product",
+            "category": "Electronics",
+            "__v": 0,
+            "createdAt": "2023-06-06T10:59:04.421Z"
+        },
+        {
+            "_id": "647e32dceb4080c4543ad12a",
+            "name": "Sample Product",
+            "price": 9.99,
+            "description": "This is a sample product",
+            "category": "Electronics",
+            "__v": 0,
+            "createdAt": "2023-06-06T10:59:04.421Z"
+        }
+    ],
+    "totalPages": 1
+}
 
-GET /api/items/:id: Get a specific product by ID.
+## Get a specific product by ID.
+## GET /api/items/:id: 
+Response-
+{
+    "_id": "647f112683c0f10a3df539e3",
+    "name": "freez",
+    "price": 30000,
+    "description": "This is a sample product",
+    "category": "Electronics",
+    "user": "647ed70a6157c233f205cfdc",
+    "createdAt": "2023-06-06T10:57:42.977Z",
+    "__v": 0
+}
+## Update a specific product by ID.
+## PUT /api/items/:id: 
+Request Body:
+{
+  "name": "Television",
+  "price": 100,
+  "description": "This is sample product",
+  "category": "Electronics"
+}
+Response - 
+{
+  "name": "Television",
+  "price": 100,
+  "description": "This is sample product",
+  "category": "Electronics"
+}
 
-PUT /api/items/:id: Update a specific product by ID.
+## DELETE /api/items/:id: 
+## Delete a specific product by ID.
 
-DELETE /api/items/:id: Delete a specific product by ID.
 
 
-## Contributing
 
-If you'd like to contribute to this project, please follow these guidelines:
-
-1. Fork the repository.
-2. Create a new branch.
-3. Make your changes and commit them.
-4. Push your changes to your forked repository.
-5. Submit a pull request.
 
 
